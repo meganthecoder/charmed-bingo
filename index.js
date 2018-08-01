@@ -5,22 +5,67 @@ const { ApolloServer, gql } = require('apollo-server');
 // from an existing data source like a REST API or database.
 const characters = [
     {
-        id: 1,
-        name: 'Prue',
-        image: {
-            id: 5,
-            url: '/images/test5.png'
+      id: 1,
+      name: 'Prue',
+      image: [{
+          id: 5,
+          url: '/images/test5.png'
+      }],
+      type: 'Witch'
+    },
+    {
+      id: 2,
+      name: 'Andy',
+      image: [{
+          id: 1,
+          url: '/images/test1.png'
+      }],
+      type: 'Human'
+    },
+    {
+      id: 3,
+      name: 'Piper',
+      image: [{
+          id: 4,
+          url: '/images/test4.png'
+      }],
+      type: 'Witch'
+    },
+    {
+        id: 4,
+        name: 'Pheobe',
+        image: [{
+            id: 6,
+            url: '/images/test6.png'
         },
-        type: WITCH
+        {
+            id: 7,
+            url: '/images/test7.png'
+        },
+        {
+            id: 8,
+            url: '/images/test8.png'
+        }],
+        type: 'Witch'
+    },
+];
+
+const demons = [
+    {
+        id: 1,
+        name: 'Windigo',
+        image: [{
+            id: 2,
+            url: '/images/test2.png'
+        }],
     },
     {
         id: 2,
-        name: 'Windigo',
-        image: {
-            id: 1,
-            url: '/images/test1.png'
-        },
-        type: DEMON
+        name: 'Gremlin',
+        image: [{
+            id: 3,
+            url: '/images/test3.png'
+        }],
     },
 ];
 
@@ -33,24 +78,25 @@ const typeDefs = gql`
     id: Int,
     name: String,
     image: [Image],
-    type: CharacterType
+    type: String,
+  }
+
+  type Demon {
+    id: Int,
+    name: String,
+    image: [Image],
   }
   
   type Image {
     id: Int,
     url: String
   }
-  
-  enum CharacterType {
-    WITCH
-    DEMON
-    MORTAL
-  }
 
   # The "Query" type is the root of all GraphQL queries.
   # (A "Mutation" type will be covered later on.)
   type Query {
-    characters: [Character]
+    characters: [Character],
+    demons: [Demon]
   }
 `;
 
@@ -59,6 +105,7 @@ const typeDefs = gql`
 const resolvers = {
     Query: {
         characters: () => characters,
+        demons: () => demons,
     },
 };
 
