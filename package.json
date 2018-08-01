@@ -1,0 +1,24 @@
+{
+  "name": "charmed-bingo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meganthecoder/charmed-bingo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meganthecoder/charmed-bingo/issues"
+  },
+  "homepage": "https://github.com/meganthecoder/charmed-bingo#readme",
+  "dependencies": {
+    "apollo-server": "^2.0.0",
+    "graphql": "^0.13.2"
+  }
+}
