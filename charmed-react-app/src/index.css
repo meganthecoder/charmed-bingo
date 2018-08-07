@@ -4,12 +4,39 @@ body {
   font-family: sans-serif;
 }
 
+#container {
+  padding: 1rem;
+}
+
+.bingo-card {
+  max-width: 600px;
+}
+
+.column {
+  display: inline-block;
+  width: 20%;
+}
+
+.tile-title {
+  border: 1px solid black;
+  padding: 0.25rem;
+  display: block;
+  position: relative;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  text-align: center;
+  background-color: #DDDDDD;
+}
+
 .tile {
   border: 1px solid black;
   padding: 0.25rem;
-  display: inline-flex;
+  display: block;
   position: relative;
   font-size: 1rem;
+  width: 100%;
 }
 
 .tile.marked:after {

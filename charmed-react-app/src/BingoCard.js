@@ -1,37 +1,28 @@
 import React, { Component } from 'react';
-import Tile from './Tile.js';
+import Column from './Column.js';
 
 class BingoCard extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            tiles: [
-                {
-                    id: 1,
-                    name: "Windigo"
-                },
-                {
-                    id: 2,
-                    name: "Gremlin"
-                }
-            ]
+            columns: ['w', 'i', 't', 'c', 'h']
         };
-        this.eachTile = this.eachTile.bind(this);
+        this.eachColumn = this.eachColumn.bind(this);
     }
 
-    eachTile(tile) {
+    eachColumn(column, i) {
         return(
-            <Tile>
-                {tile.name}
-            </Tile>
+            <Column key={i}>
+                {column}
+            </Column>
         );
     }
 
     render() {
         return (
-            <div className="BingoCard">
-                {this.state.tiles.map(this.eachTile)}
+            <div className="bingo-card">
+                {this.state.columns.map(this.eachColumn)}
             </div>
         );
     }
